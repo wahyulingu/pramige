@@ -1,5 +1,7 @@
 <?php
 
+namespace WahyuLingu\Pramige;
+
 class Generator
 {
     public function __construct(private int $width, private int $height)

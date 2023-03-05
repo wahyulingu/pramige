@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Wahyulingu\\Pramige\\": "src/"
+            "WahyuLingu\\Pramige\\": "src/"
         }
     },
     "authors": [
