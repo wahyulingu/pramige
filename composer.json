@@ -1,0 +1,19 @@
+{
+    "name": "wahyulingu/pramige",
+    "description": "Generate random image file",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Wahyulingu\\Pramige\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Wahyudi, Lingu",
+            "email": "wahyulingu@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
