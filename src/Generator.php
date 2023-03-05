@@ -2,6 +2,8 @@
 
 namespace WahyuLingu\Pramige;
 
+use Exception;
+
 class Generator
 {
     public function __construct(private int $width, private int $height)
