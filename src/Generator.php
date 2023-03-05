@@ -32,7 +32,22 @@ class Generator
             imageline($image, $x1, $y1, $x2, $y2, $color);
         }
 
-        imagepng($image, $filename);
+        $extension = pathinfo($filename, PATHINFO_EXTENSION);
+        switch ($extension) {
+            case 'jpg':
+            case 'jpeg':
+                imagejpeg($image, $filename);
+                break;
+            case 'png':
+                imagepng($image, $filename);
+                break;
+            case 'gif':
+                imagegif($image, $filename);
+                break;
+            default:
+                throw new Exception('Unsupported file format');
+        }
+
         imagedestroy($image);
     }
 }
