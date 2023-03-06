@@ -12,6 +12,8 @@ class GeneratorTest extends TestCase
         $generator->save($filename);
 
         $this->assertFileExists($filename);
+
+        unlink($filename);
     }
 
     public function testSaveUnsupportedFormat()
