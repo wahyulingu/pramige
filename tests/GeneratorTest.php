@@ -64,9 +64,10 @@ class GeneratorTest extends TestCase
 
         $generator->png();
 
-        $buff = ob_get_clean();
+        $expected = ob_get_clean();
+        $actual = $generator->buff(Format::png);
 
-        $this->assertEquals($buff, $generator->buff(Format::png));
+        $this->assertEquals($expected, $actual);
     }
 
     public function testSaveUnsupportedFormat()
