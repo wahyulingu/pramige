@@ -82,24 +82,57 @@ class Generator
     {
         $this->image = imagecreatetruecolor($this->width, $this->height);
 
-        // loop through each pixel and set a random color
-        for ($x = 0; $x < $this->width; $x++) {
-            for ($y = 0; $y < $this->height; $y++) {
-                $color = imagecolorallocate($this->image, rand(0, 255), rand(0, 255), rand(0, 255));
-                imagesetpixel($this->image, $x, $y, $color);
-            }
-        }
-
-        // draw random lines with random thickness
+        // draw random lines and polygons with random thickness
         for ($i = 0; $i < 50; $i++) {
-            $x1 = rand(0, $this->width);
-            $y1 = rand(0, $this->height);
-            $x2 = rand(0, $this->width);
-            $y2 = rand(0, $this->height);
+            $x1 = rand(3, $this->width);
+            $y1 = rand(3, $this->height);
+            $x2 = rand(3, $this->width);
+            $y2 = rand(3, $this->height);
+
             $color = imagecolorallocate($this->image, rand(0, 255), rand(0, 255), rand(0, 255));
             $thickness = rand(1, 10);
+
             imagesetthickness($this->image, $thickness);
             imageline($this->image, $x1, $y1, $x2, $y2, $color);
+
+            $x1 = rand(3, $this->width);
+            $y1 = rand(3, $this->height);
+            $x2 = rand(3, $this->width);
+            $y2 = rand(3, $this->height);
+            $x3 = rand(0, $this->width);
+            $y3 = rand(0, $this->height);
+            $x4 = rand(0, $this->width);
+            $y4 = rand(0, $this->height);
+            $x5 = rand(0, $this->width);
+            $y5 = rand(0, $this->height);
+            $x6 = rand(0, $this->width);
+            $y6 = rand(0, $this->height);
+            $x7 = rand(0, $this->width);
+            $y7 = rand(0, $this->height);
+            $x8 = rand(0, $this->width);
+            $y8 = rand(0, $this->height);
+
+            $points = [
+                $x1, $y1,
+                $x2, $y2,
+                $x5, $y5,
+                $x6, $y6,
+                $x5, $y5,
+                $x4, $y4,
+                $x3, $y3,
+                $x4, $y4,
+                $x7, $y7,
+                $x8, $y8,
+                $x6, $y6,
+                $x3, $y3,
+                $x7, $y7,
+                $x8, $y8,
+            ];
+
+            $numOfPoints = rand(3, count($points) / 2);
+            $color = imagecolorallocate($this->image, rand(0, 255), rand(0, 255), rand(0, 255));
+
+            imagepolygon($this->image, $points, $numOfPoints, $color);
         }
 
         return $this;
