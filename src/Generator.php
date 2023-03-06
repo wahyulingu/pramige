@@ -7,7 +7,7 @@ use GdImage;
 
 class Generator
 {
-    protected GdImage $image;
+    protected ?GdImage $image = null;
 
     public function __construct(private int $width = 200, private int $height = 200)
     {
@@ -71,6 +71,10 @@ class Generator
 
     public function generate(): self
     {
+        if ($this->image !== null) {
+            imagedestroy($this->image);
+        }
+
         $this->image = imagecreatetruecolor($this->width, $this->height);
 
         // loop through each pixel and set a random color
@@ -93,13 +97,16 @@ class Generator
             imageline($this->image, $x1, $y1, $x2, $y2, $color);
         }
 
-        imagedestroy($this->image);
-
         return $this;
     }
 
     public static function init(int $width = 200, int $height = 200): self
     {
         return new static($width, $height);
+    }
+
+    public function __destruct()
+    {
+        imagedestroy($this->image);
     }
 }
