@@ -83,7 +83,7 @@ class Generator
         $this->image = imagecreatetruecolor($this->width, $this->height);
 
         // draw random lines and polygons with random thickness
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             $x1 = rand(3, $this->width);
             $y1 = rand(3, $this->height);
             $x2 = rand(3, $this->width);
@@ -117,15 +117,15 @@ class Generator
                 $x2, $y2,
                 $x5, $y5,
                 $x6, $y6,
-                $x5, $y5,
-                $x4, $y4,
-                $x3, $y3,
                 $x4, $y4,
                 $x7, $y7,
                 $x8, $y8,
                 $x6, $y6,
                 $x3, $y3,
                 $x7, $y7,
+                $x5, $y5,
+                $x4, $y4,
+                $x3, $y3,
                 $x8, $y8,
             ];
 
