@@ -6,8 +6,22 @@ use Exception;
 
 class Generator
 {
-    public function __construct(private int $width, private int $height)
+    public function __construct(private int $width = 200, private int $height = 200)
     {
+    }
+
+    public function width(int $width): self
+    {
+        $this->width = $width;
+
+        return $this;
+    }
+
+    public function height(int $height): self
+    {
+        $this->height = $height;
+
+        return $this;
     }
 
     public function save($filename)
@@ -35,6 +49,7 @@ class Generator
         }
 
         $extension = pathinfo($filename, PATHINFO_EXTENSION);
+
         switch ($extension) {
             case 'jpg':
             case 'jpeg':
@@ -51,5 +66,10 @@ class Generator
         }
 
         imagedestroy($image);
+    }
+
+    public static function init(int $width = 200, int $height = 200): self
+    {
+        return new static($width, $height);
     }
 }
